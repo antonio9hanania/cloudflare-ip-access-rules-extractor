@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        width: 600px;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+      }
+      .warning {
+        color: red;
+        font-weight: bold;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      #dataTable {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-top: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Cloudflare IP Access Rules Extractor</h3>
+    <p class="warning">Keep this popup open until extraction is complete!</p>
+    <p>
+      Note: Please go to the first page of security/waf/tools in Cloudflare
+      before starting.
+    </p>
+    <button id="startExtraction">Start Extraction</button>
+    <div id="dataTable"></div>
+    <button id="copyTable" disabled>Copy Table</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

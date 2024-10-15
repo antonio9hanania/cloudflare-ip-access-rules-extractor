@@ -1,16 +1,9 @@
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([{
-      conditions: [
-        new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: {hostEquals: 'dash.cloudflare.com', pathContains: 'security/waf/tools'},
-        })
-      ],
-      actions: [new chrome.declarativeContent.ShowPageAction()]
-    }]);
-  });
+chrome.runtime.onInstalled.addListener(function () {
+  console.log("Cloudflare IP Access Rules Extractor installed");
 });
 
-chrome.pageAction.onClicked.addListener(function(tab) {
-  chrome.tabs.sendMessage(tab.id, {action: "extract"});
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.action === "log") {
+    console.log("Extension log:", request.message);
+  }
 });
