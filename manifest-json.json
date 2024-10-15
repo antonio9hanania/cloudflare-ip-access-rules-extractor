@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Cloudflare IP Access Rules Extraction",
+  "version": "1.0",
+  "description": "Extracts IP Access Rules from Cloudflare dashboard",
+  "permissions": [
+    "activeTab",
+    "https://dash.cloudflare.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Extract IP Access Rules"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://dash.cloudflare.com/*/security/waf/tools*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
